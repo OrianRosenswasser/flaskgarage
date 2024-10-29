@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Online Store</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .jumbotron {
+      background-color: #3498db;
+      color: white;
+      margin-bottom: 0;
+      padding: 50px 25px;
+    }
+
+    .navbar {
+      background-color: #ff99cc;
+      margin-bottom: 50px;
+      border-radius: 0;
+    }
+
+    .navbar-inverse .navbar-nav>li>a {
+      color: white;
+    }
+
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+
+    .panel-link {
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .panel-link:hover {
+      text-decoration: none;
+      transform: scale(1.05);
+    }
+
+    .panel {
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: box-shadow 0.3s ease;
+      margin-bottom: 20px;
+      height: 100%;
+    }
+
+    .panel:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .panel-heading {
+      background-color: #3498db;
+      color: white;
+      padding: 10px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    .panel-heading h4 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: normal;
+    }
+
+    .panel-body {
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .panel-body img {
+      max-width: 100%;
+      height: 150px;
+      object-fit: contain;
+      margin: auto;
+    }
+
+    .panel-footer {
+      background-color: #f7f7f7;
+      padding: 8px;
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+      font-weight: normal;
+    }
+
+    .container {
+      margin-top: 30px;
+    }
+
+    /* Search form specific styling */
+    .search-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px auto; /* Reduced margin */
+      padding: 10px; /* Further reduced padding */
+      background-color: #ffffff;
+      border-radius: 8px; /* Smaller border radius */
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+      max-width: 400px; /* Smaller width */
+    }
+
+    .form-inline {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .form-group {
+      margin: 5px; /* Smaller margin */
+    }
+
+    .form-control {
+      border-radius: 15px; /* Reduced radius */
+      padding: 6px 10px; /* Smaller padding */
+      font-size: 12px; /* Smaller font size */
+      width: 150px; /* Smaller width */
+    }
+
+    .btn {
+      border-radius: 15px; /* Reduced radius */
+      padding: 6px 10px; /* Smaller padding */
+      font-size: 12px; /* Smaller font size */
+    }
+
+    h2.text-center {
+      margin-bottom: 20px; /* Reduced margin */
+      font-weight: bold;
+      color: #3498db;
+    }
+
+    .btn-primary:hover {
+      background-color: #2980b9;
+      border-color: #2980b9;
+    }
+
+    @media (max-width: 768px) {
+      .panel-body img {
+        height: 120px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="jumbotron">
+    <div class="container text-center">
+      <h1>Best Garage Everrrr</h1>
+      <p>But we're better at programming rather than cars 🚗 😊</p>
+    </div>
+  </div>
+{% include "nav_bar.html" %}
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=True) %}
+      {% if messages %}
+        <div>
+          {% for category, message in messages %}
+            <div class="alert alert-{{ category }}" role="alert">
+              {{ message }}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+  <!-- Search Form Section -->
+  <div class="container search-container">
+    <div class="container text-center">
+      <form action="/" method="get" class="form-inline">
+          <div class="form-group">
+              <input type="text" class="form-control" id="problem" name="problems" placeholder="Problem (e.g. engine)" style="width: 150px; margin-right: 5px;">
+          </div>
+          <div class="form-group">
+              <input type="text" class="form-control" id="number" name="number" placeholder="Car Number" style="width: 100px; margin-right: 5px;">
+          </div>
+          <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+  </div>
+  
+  </div>
+{% block content %}
+{% endblock %}
+
+<footer class="container-fluid text-center">
+    <p>Have a great day 💖 ©️</p>
+    <form class="form-inline">Get deals:
+      <input type="email" class="form-control" size="50" placeholder="Email Address">
+      <button type="button" class="btn btn-danger">Sign Up</button>
+    </form>
+  </footer>
+
+</body>
+
+</html>
+

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <form action="/add_car/" method="post">
+        <div class="form-group">
+            <label for="number">Car Number:</label>
+            <input type="text" class="form-control" id="number" name="number" required>
+        </div>
+        <div class="form-group">
+            <label for="problems">Problems (comma-separated):</label>
+            <input type="text" class="form-control" id="problems" name="problems">
+        </div>
+        <div class="form-group">
+            <label for="urgent">Urgent:</label>
+            <input type="checkbox" id="urgent" name="urgent">
+        </div>
+        <div class="form-group">
+            <label for="image_url">Image URL:</label>
+            <input type="text" class="form-control" id="image_url" name="image_url" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Car</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+%{% block content %}
+
+<div class="container">
+    <div class="row">
+      {% for car in car_list %}
+      <div class="col-xs-6 col-sm-6 col-md-4">
+        <a href="/single_car/{{ loop.index0 }}" class="panel-link">
+          <div class="panel">
+            <div class="panel-heading">
+              <h4>Car Number: {{ car["number"] }}</h4>
+            </div>
+            <div class="panel-body">
+              <img src="{{ car['image_url'] }}" class="img-responsive" alt="Car Image">
+            </div>
+            <div class="panel-footer">
+              Click to view details of {{ car["number"] }}
+            </div>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+{% endblock %}
